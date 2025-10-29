@@ -8,25 +8,33 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; line-height: 1.6; color: #333; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px 0; }
+        header { background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%); color: white; padding: 20px 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         nav { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 24px; font-weight: bold; }
+        .logo-container { display: flex; align-items: center; gap: 15px; }
+        .logo-container img { height: 40px; width: auto; filter: brightness(0) invert(1); }
+        .logo-text { font-size: 22px; font-weight: 600; letter-spacing: -0.5px; }
         nav ul { display: flex; list-style: none; gap: 30px; }
-        nav a { color: white; text-decoration: none; font-weight: 500; }
-        section { padding: 60px 20px; }
-        h1 { font-size: 42px; margin-bottom: 20px; color: #667eea; }
-        h2 { font-size: 32px; margin: 40px 0 20px; color: #667eea; }
+        nav a { color: white; text-decoration: none; font-weight: 500; transition: opacity 0.3s; }
+        nav a:hover { opacity: 0.8; }
+        section { padding: 80px 20px; }
+        h1 { font-size: 42px; margin-bottom: 20px; color: #1e40af; font-weight: 700; }
+        h2 { font-size: 32px; margin: 40px 0 20px; color: #1e40af; font-weight: 700; }
         .resource-section { background: white; padding: 40px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin: 30px 0; }
-        .resource-section h3 { color: #667eea; margin-bottom: 10px; font-size: 22px; }
-        .resource-item { margin: 20px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; }
-        .resource-item strong { color: #667eea; }
-        footer { background: #2d3748; color: white; padding: 40px 20px; text-align: center; }
+        .resource-section h3 { color: #2563eb; margin-bottom: 10px; font-size: 22px; }
+        .resource-item { margin: 20px 0; padding: 20px; background: #f8f9fa; border-radius: 5px; border-left: 3px solid #2563eb; }
+        .resource-item strong { color: #1e40af; display: block; margin-bottom: 5px; }
+        footer { background: #1f2937; color: white; padding: 40px 20px; text-align: center; }
+        footer img { height: 30px; margin: 10px; opacity: 0.8; filter: brightness(0) invert(1); }
+        @media (max-width: 768px) { nav ul { display: none; } .logo-container img { height: 30px; } }
     </style>
 </head>
 <body>
     <header>
         <nav class="container">
-            <div class="logo">📊 Copenhagen Quant Lab</div>
+            <div class="logo-container">
+                <img src="Screenshot 2025-10-29 at 13.24.00.png" alt="Copenhagen Quant Lab">
+                <span class="logo-text">Copenhagen Quant Lab</span>
+            </div>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
@@ -44,147 +52,82 @@
             <p style="font-size: 18px; margin-bottom: 40px;">Curated materials for mastering quantitative finance, from probability foundations through advanced trading strategies.</p>
 
             <div class="resource-section">
-                <h2>📊 Probability & Statistics</h2>
+                <h2>Probability & Statistics</h2>
                 <p>Foundational knowledge for all quantitative work.</p>
                 
                 <div class="resource-item">
-                    <strong>Fifty Challenging Problems in Probability with Solutions</strong> by Frederick Mosteller<br>
+                    <strong>Fifty Challenging Problems in Probability with Solutions</strong>
                     Classic collection of elegant probability puzzles. Perfect for building intuition and problem-solving skills. Start here if you're comfortable with basic probability.
                 </div>
                 
                 <div class="resource-item">
-                    <strong>Introduction to Probability</strong> by Joseph Blitzstein & Jessica Hwang<br>
-                    Comprehensive textbook covering probability theory from fundamentals through advanced topics. Excellent for systematic learning. Harvard's Stat 110 course uses this text—videos available free online.
+                    <strong>Introduction to Probability</strong>
+                    Comprehensive textbook covering probability theory from fundamentals through advanced topics. Harvard's Stat 110 course uses this text—videos available free online.
                 </div>
                 
                 <div class="resource-item">
-                    <strong>The Drunkard's Walk</strong> by Leonard Mlodinow<br>
-                    Accessible introduction to probability and randomness for building intuition. Great for understanding why probability matters in real-world decisions.
-                </div>
-                
-                <div class="resource-item">
-                    <strong>Brilliant.org Probability Course</strong><br>
-                    Interactive online learning with immediate feedback. Covers expected value, distributions, conditional probability, and more. Excellent for self-paced learning.
-                </div>
-                
-                <div class="resource-item">
-                    <strong>MIT OpenCourseWare 18.05: Introduction to Probability and Statistics</strong><br>
-                    Free lecture notes, assignments, and solutions. Rigorous treatment suitable for technical students. Includes R programming for statistical analysis.
+                    <strong>Brilliant.org Probability Course</strong>
+                    Interactive online learning with immediate feedback. Covers expected value, distributions, conditional probability, and more.
                 </div>
             </div>
 
             <div class="resource-section">
-                <h2>📈 Options & Derivatives</h2>
+                <h2>Options & Derivatives</h2>
                 <p>Understanding financial instruments and pricing theory.</p>
                 
                 <div class="resource-item">
-                    <strong>Options, Futures, and Other Derivatives</strong> by John Hull<br>
-                    Industry standard textbook. Focus on chapters 1-15 (options fundamentals, Black-Scholes, Greeks, binomial trees) and 20-23 (advanced topics). Dense but comprehensive.
+                    <strong>Options, Futures, and Other Derivatives by John Hull</strong>
+                    Industry standard textbook. Focus on chapters 1-15 and 20-23. Dense but comprehensive.
                 </div>
                 
                 <div class="resource-item">
-                    <strong>Paul Wilmott Introduces Quantitative Finance</strong> by Paul Wilmott<br>
-                    More intuitive than Hull, with practical examples and trading perspectives. Excellent for understanding "why" behind the mathematics.
+                    <strong>Paul Wilmott Introduces Quantitative Finance</strong>
+                    More intuitive than Hull, with practical examples and trading perspectives.
                 </div>
                 
                 <div class="resource-item">
-                    <strong>Coursera: Financial Engineering and Risk Management</strong> by Columbia University<br>
-                    Video lectures on derivatives pricing, portfolio optimization, and risk management. Includes Python programming assignments.
-                </div>
-                
-                <div class="resource-item">
-                    <strong>OptionsPlaybook.com</strong><br>
-                    Interactive tool for visualizing options strategies (spreads, straddles, butterflies). Essential for building intuition about payoff profiles.
-                </div>
-                
-                <div class="resource-item">
-                    <strong>Project: Build Black-Scholes Calculator</strong><br>
-                    Implement Black-Scholes formula in Python, calculate Greeks, visualize how option prices change with parameters. Excellent hands-on learning.
+                    <strong>OptionsPlaybook.com</strong>
+                    Interactive tool for visualizing options strategies. Essential for building intuition about payoff profiles.
                 </div>
             </div>
 
             <div class="resource-section">
-                <h2>💻 Algorithmic Trading</h2>
+                <h2>Algorithmic Trading</h2>
                 <p>Systematic strategy development and implementation.</p>
                 
                 <div class="resource-item">
-                    <strong>Algorithmic Trading: Winning Strategies and Their Rationale</strong> by Ernest Chan<br>
+                    <strong>Algorithmic Trading by Ernest Chan</strong>
                     Practical guide to developing trading strategies. Covers mean reversion, momentum, statistical arbitrage with Python examples.
                 </div>
                 
                 <div class="resource-item">
-                    <strong>Advances in Financial Machine Learning</strong> by Marcos López de Prado<br>
-                    Advanced techniques for applying machine learning to trading. Covers backtesting, feature engineering, risk management. For experienced coders.
-                </div>
-                
-                <div class="resource-item">
-                    <strong>QuantConnect Platform</strong><br>
-                    Cloud-based backtesting platform with free tier. Code strategies in Python, backtest on historical data, paper trade live. Active community forum.
-                </div>
-                
-                <div class="resource-item">
-                    <strong>Backtrader (Python Library)</strong><br>
-                    Open-source backtesting framework. More control than QuantConnect, steeper learning curve. Excellent for serious strategy development.
-                </div>
-                
-                <div class="resource-item">
-                    <strong>Yahoo Finance & yfinance Library</strong><br>
-                    Free historical stock data for backtesting. Simple Python library: <code>pip install yfinance</code> and you're ready to download data.
-                </div>
-                
-                <div class="resource-item">
-                    <strong>Starter Project: Moving Average Crossover</strong><br>
-                    Build simple momentum strategy: buy when short MA crosses above long MA, sell on reverse. Analyze returns, drawdowns, Sharpe ratio.
+                    <strong>QuantConnect Platform</strong>
+                    Cloud-based backtesting platform with free tier. Code strategies in Python, backtest on historical data.
                 </div>
             </div>
 
             <div class="resource-section">
-                <h2>🎯 Interview Preparation</h2>
+                <h2>Interview Preparation</h2>
                 <p>Resources for quantitative finance recruiting.</p>
                 
                 <div class="resource-item">
-                    <strong>Heard on the Street</strong> by Timothy Crack<br>
-                    Essential interview preparation covering probability, statistics, logic, and finance brain teasers. Organized by difficulty level—start with "Easy" problems.
+                    <strong>Heard on the Street by Timothy Crack</strong>
+                    Essential interview preparation covering probability, statistics, logic, and finance brain teasers.
                 </div>
                 
                 <div class="resource-item">
-                    <strong>A Practical Guide to Quantitative Finance Interviews</strong> by Xinfeng Zhou<br>
-                    150+ interview questions with detailed solutions. Covers probability, derivatives, programming, risk management. Updated regularly with new questions.
+                    <strong>A Practical Guide to Quantitative Finance Interviews</strong>
+                    150+ interview questions with detailed solutions. Updated regularly with new questions.
                 </div>
                 
                 <div class="resource-item">
-                    <strong>Quant Job Interview Questions and Answers</strong> by Mark Joshi<br>
-                    Advanced problems for quant researcher roles. Focuses on mathematical depth and rigorous thinking.
-                </div>
-                
-                <div class="resource-item">
-                    <strong>BrainStellar.com</strong><br>
-                    Free website with probability and logic puzzles similar to trading interview questions. Active community discussions with multiple solution approaches.
-                </div>
-                
-                <div class="resource-item">
-                    <strong>QuantNet Forum</strong><br>
-                    Community forum with interview experiences, firm-specific tips, career advice from quants. Search for specific companies before interviews.
-                </div>
-                
-                <div class="resource-item">
-                    <strong>Glassdoor Interview Experiences</strong><br>
-                    Read recent interview reports for Jane Street, IMC, Optiver, Citadel, etc. Understand format, difficulty, specific question types asked.
-                </div>
-                
-                <div class="resource-item">
-                    <strong>Mental Math Practice</strong><br>
-                    Download mental math trainer apps. Practice: multiplication of 2-digit numbers, square roots, percentages, fractions. Speed matters in interviews.
-                </div>
-                
-                <div class="resource-item">
-                    <strong>Firm-Specific Resources</strong><br>
-                    Jane Street Probability Workshop materials, Optiver trader test practice, IMC Prosperity algorithmic trading challenge. All available online for free.
+                    <strong>BrainStellar.com</strong>
+                    Free website with probability and logic puzzles similar to trading interview questions.
                 </div>
             </div>
 
             <div class="resource-section">
-                <h2>🔒 Member Portal</h2>
+                <h2>Member Portal</h2>
                 <p><strong>For active Copenhagen Quant Lab members only.</strong></p>
                 <p style="margin-top: 15px;">Access to:</p>
                 <ul style="margin-left: 30px; margin-top: 10px;">
@@ -193,16 +136,17 @@
                     <li>Recording archives of past sessions</li>
                     <li>Internal research sharing</li>
                     <li>Job posting updates from partners</li>
-                    <li>Alumni contact database</li>
                 </ul>
-                <p style="margin-top: 15px;"><a href="mailto:contact@copenhagenquantlab.com" style="color: #667eea;">Contact us</a> for member portal access.</p>
+                <p style="margin-top: 15px;"><a href="mailto:contact@copenhagenquantlab.com" style="color: #2563eb; font-weight: 500;">Contact us</a> for member portal access.</p>
             </div>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Copenhagen Quant Lab | DTU's Quantitative Trading Society</p>
+            <img src="Screenshot 2025-10-29 at 13.24.00.png" alt="Copenhagen Quant Lab">
+            <img src="DTU_Logo_Sekundaer_Logo_Blue.jpg" alt="DTU">
+            <p style="margin-top: 20px;">&copy; 2025 Copenhagen Quant Lab | DTU's Quantitative Trading Society</p>
         </div>
     </footer>
 </body>
