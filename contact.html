@@ -8,32 +8,41 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; line-height: 1.6; color: #333; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px 0; }
+        header { background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%); color: white; padding: 20px 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         nav { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 24px; font-weight: bold; }
+        .logo-container { display: flex; align-items: center; gap: 15px; }
+        .logo-container img { height: 40px; width: auto; filter: brightness(0) invert(1); }
+        .logo-text { font-size: 22px; font-weight: 600; letter-spacing: -0.5px; }
         nav ul { display: flex; list-style: none; gap: 30px; }
-        nav a { color: white; text-decoration: none; font-weight: 500; }
-        section { padding: 60px 20px; }
-        h1 { font-size: 42px; margin-bottom: 20px; color: #667eea; }
-        h2 { font-size: 32px; margin: 40px 0 20px; color: #667eea; }
+        nav a { color: white; text-decoration: none; font-weight: 500; transition: opacity 0.3s; }
+        nav a:hover { opacity: 0.8; }
+        section { padding: 80px 20px; }
+        h1 { font-size: 42px; margin-bottom: 20px; color: #1e40af; font-weight: 700; }
+        h2 { font-size: 32px; margin: 40px 0 20px; color: #1e40af; font-weight: 700; }
         .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 40px 0; }
-        .contact-card { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; }
-        .contact-icon { font-size: 48px; margin-bottom: 15px; }
-        .contact-card h3 { color: #667eea; margin-bottom: 15px; }
-        .contact-card a { color: #667eea; text-decoration: none; font-weight: 500; word-break: break-all; }
+        .contact-card { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; transition: transform 0.3s; }
+        .contact-card:hover { transform: translateY(-5px); }
+        .contact-icon { font-size: 48px; margin-bottom: 15px; color: #2563eb; }
+        .contact-card h3 { color: #2563eb; margin-bottom: 15px; font-size: 22px; }
+        .contact-card a { color: #2563eb; text-decoration: none; font-weight: 500; word-break: break-all; }
         .contact-card a:hover { text-decoration: underline; }
-        .board-contact { background: #f8f9fa; padding: 20px; margin: 15px 0; border-radius: 8px; border-left: 4px solid #667eea; }
-        .board-contact strong { color: #667eea; }
-        footer { background: #2d3748; color: white; padding: 40px 20px; text-align: center; }
+        .board-contact { background: #f8f9fa; padding: 20px; margin: 15px 0; border-radius: 8px; border-left: 4px solid #2563eb; }
+        .board-contact strong { color: #2563eb; }
+        footer { background: #1f2937; color: white; padding: 40px 20px; text-align: center; }
+        footer img { height: 30px; margin: 10px; opacity: 0.8; filter: brightness(0) invert(1); }
         .social-links { display: flex; justify-content: center; gap: 30px; margin: 30px 0; flex-wrap: wrap; }
-        .social-link { display: flex; align-items: center; gap: 10px; color: #667eea; text-decoration: none; font-weight: 500; font-size: 18px; }
-        .social-link:hover { opacity: 0.8; }
+        .social-link { display: flex; align-items: center; gap: 10px; color: #2563eb; text-decoration: none; font-weight: 500; font-size: 18px; transition: opacity 0.3s; }
+        .social-link:hover { opacity: 0.7; }
+        @media (max-width: 768px) { nav ul { display: none; } .logo-container img { height: 30px; } }
     </style>
 </head>
 <body>
     <header>
         <nav class="container">
-            <div class="logo">📊 Copenhagen Quant Lab</div>
+            <div class="logo-container">
+                <img src="Screenshot 2025-10-29 at 13.24.00.png" alt="Copenhagen Quant Lab">
+                <span class="logo-text">Copenhagen Quant Lab</span>
+            </div>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
@@ -52,14 +61,14 @@
 
             <div class="contact-grid">
                 <div class="contact-card">
-                    <div class="contact-icon">📧</div>
+                    <div class="contact-icon">✉️</div>
                     <h3>General Inquiries</h3>
                     <p>For questions about membership, activities, or general information</p>
                     <p style="margin-top: 15px;"><a href="mailto:contact@copenhagenquantlab.com">contact@copenhagenquantlab.com</a></p>
                 </div>
 
                 <div class="contact-card">
-                    <div class="contact-icon">💼</div>
+                    <div class="contact-icon">🤝</div>
                     <h3>Industry Partners</h3>
                     <p>For sponsorship, recruiting, guest speaking, or collaboration opportunities</p>
                     <p style="margin-top: 15px;"><a href="mailto:partners@copenhagenquantlab.com">partners@copenhagenquantlab.com</a></p>
@@ -79,13 +88,10 @@
                     <span style="font-size: 28px;">💼</span> LinkedIn
                 </a>
                 <a href="mailto:contact@copenhagenquantlab.com" class="social-link">
-                    <span style="font-size: 28px;">📧</span> Email
+                    <span style="font-size: 28px;">✉️</span> Email
                 </a>
                 <a href="#" class="social-link">
                     <span style="font-size: 28px;">💬</span> Discord (Coming Soon)
-                </a>
-                <a href="#" class="social-link">
-                    <span style="font-size: 28px;">📱</span> Instagram (Coming Soon)
                 </a>
             </div>
 
@@ -95,38 +101,30 @@
             <div class="board-contact">
                 <strong>[Your Name]</strong> — President & Co-Founder<br>
                 MSc Computer Science - AI & Algorithms<br>
-                📧 <a href="mailto:president@copenhagenquantlab.com">president@copenhagenquantlab.com</a>
+                <a href="mailto:president@copenhagenquantlab.com" style="color: #2563eb;">president@copenhagenquantlab.com</a>
             </div>
 
             <div class="board-contact">
                 <strong>[Board Member Name]</strong> — Vice President<br>
                 MSc Mathematical Modeling<br>
-                📧 <a href="mailto:vicepresident@copenhagenquantlab.com">vicepresident@copenhagenquantlab.com</a>
+                <a href="mailto:vicepresident@copenhagenquantlab.com" style="color: #2563eb;">vicepresident@copenhagenquantlab.com</a>
             </div>
 
             <div class="board-contact">
                 <strong>[Board Member Name]</strong> — Education Director<br>
                 MSc Physics & Nanotechnology<br>
-                📧 <a href="mailto:education@copenhagenquantlab.com">education@copenhagenquantlab.com</a>
+                <a href="mailto:education@copenhagenquantlab.com" style="color: #2563eb;">education@copenhagenquantlab.com</a>
             </div>
 
             <div class="board-contact">
                 <strong>[Board Member Name]</strong> — Events & Competitions<br>
                 MSc Engineering Mathematics<br>
-                📧 <a href="mailto:events@copenhagenquantlab.com">events@copenhagenquantlab.com</a>
-            </div>
-
-            <h2>Newsletter</h2>
-            <div style="background: #f0f4ff; padding: 40px; border-radius: 10px; border-left: 5px solid #667eea; margin: 30px 0; text-align: center;">
-                <h3 style="color: #667eea; margin-bottom: 15px;">Stay Updated</h3>
-                <p style="margin-bottom: 20px;">Subscribe to receive updates about events, resources, and opportunities.</p>
-                <p><a href="mailto:contact@copenhagenquantlab.com?subject=Newsletter%20Signup" style="background: #667eea; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block;">Subscribe to Newsletter</a></p>
-                <p style="margin-top: 15px; font-size: 14px; color: #666;">(Email us with "Newsletter Signup" to be added. We'll set up automated system soon!)</p>
+                <a href="mailto:events@copenhagenquantlab.com" style="color: #2563eb;">events@copenhagenquantlab.com</a>
             </div>
 
             <h2>Meeting Location</h2>
             <div style="background: white; padding: 40px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin: 30px 0;">
-                <h3 style="color: #667eea; margin-bottom: 15px;">📍 Weekly Meetups</h3>
+                <h3 style="color: #2563eb; margin-bottom: 15px; font-size: 22px;">Weekly Meetups</h3>
                 <p><strong>When:</strong> Every Wednesday, 18:00-20:00</p>
                 <p><strong>Where:</strong> DTU Building 101, Room 3C</p>
                 <p><strong>Address:</strong> Technical University of Denmark<br>
@@ -134,31 +132,14 @@
                 2800 Kongens Lyngby, Denmark</p>
                 <p style="margin-top: 15px;"><em>First time? Email us and we'll meet you at the entrance!</em></p>
             </div>
-
-            <h2>Frequently Asked Questions</h2>
-            <div style="background: #f8f9fa; padding: 40px; border-radius: 10px; margin: 30px 0;">
-                <h3 style="color: #667eea; margin-bottom: 10px;">How do I join?</h3>
-                <p style="margin-bottom: 20px;">Visit our <a href="join.html" style="color: #667eea; font-weight: 500;">Join page</a> for detailed information about the joining process.</p>
-
-                <h3 style="color: #667eea; margin-bottom: 10px;">When do you meet?</h3>
-                <p style="margin-bottom: 20px;">Weekly meetups every Wednesday 18:00-20:00 at DTU. Additional poker nights on Fridays and monthly events.</p>
-
-                <h3 style="color: #667eea; margin-bottom: 10px;">Can I visit before joining?</h3>
-                <p style="margin-bottom: 20px;">Absolutely! Email us to attend an intro session or visit a meetup as a guest.</p>
-
-                <h3 style="color: #667eea; margin-bottom: 10px;">Do you have industry connections?</h3>
-                <p style="margin-bottom: 20px;">We're actively building partnerships with Nordic and international trading firms. As we grow, members will get priority access to recruiting events and firm connections.</p>
-
-                <h3 style="color: #667eea; margin-bottom: 10px;">I'm a company interested in partnering. Who do I contact?</h3>
-                <p>Email <a href="mailto:partners@copenhagenquantlab.com" style="color: #667eea; font-weight: 500;">partners@copenhagenquantlab.com</a> to discuss sponsorship, guest speaking, recruiting partnerships, or other collaboration opportunities.</p>
-            </div>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Copenhagen Quant Lab | DTU's Quantitative Trading Society</p>
-            <p style="margin-top: 10px;">📧 contact@copenhagenquantlab.com</p>
+            <img src="Screenshot 2025-10-29 at 13.24.00.png" alt="Copenhagen Quant Lab">
+            <img src="DTU_Logo_Sekundaer_Logo_Blue.jpg" alt="DTU">
+            <p style="margin-top: 20px;">&copy; 2025 Copenhagen Quant Lab | DTU's Quantitative Trading Society</p>
         </div>
     </footer>
 </body>
