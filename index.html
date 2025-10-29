@@ -24,7 +24,7 @@
         }
         
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
             color: white;
             padding: 20px 0;
             position: sticky;
@@ -39,9 +39,22 @@
             align-items: center;
         }
         
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-container img {
+            height: 40px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+        
+        .logo-text {
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
         }
         
         nav ul {
@@ -62,54 +75,90 @@
         }
         
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
             color: white;
-            padding: 80px 20px;
+            padding: 100px 20px;
             text-align: center;
+            position: relative;
+        }
+        
+        .hero-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .hero-logo {
+            height: 80px;
+            width: auto;
+            filter: brightness(0) invert(1);
         }
         
         .hero h1 {
             font-size: 48px;
             margin-bottom: 20px;
+            font-weight: 700;
         }
         
         .hero p {
             font-size: 20px;
             max-width: 800px;
             margin: 0 auto 30px;
+            font-weight: 300;
+        }
+        
+        .dtu-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-bottom: 20px;
+            font-weight: 500;
         }
         
         .cta-button {
-            background: #ff6b6b;
+            background: #dc2626;
             color: white;
             padding: 15px 40px;
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
             display: inline-block;
-            transition: transform 0.3s;
+            transition: transform 0.3s, background 0.3s;
         }
         
         .cta-button:hover {
             transform: translateY(-2px);
+            background: #b91c1c;
         }
         
         section {
-            padding: 60px 20px;
+            padding: 80px 20px;
+        }
+        
+        section:nth-child(even) {
+            background: #f8f9fa;
         }
         
         h2 {
             font-size: 36px;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             text-align: center;
+            color: #1e40af;
+            font-weight: 700;
         }
         
         .mission-statement {
-            background: #f8f9fa;
+            background: white;
             padding: 40px;
-            border-left: 5px solid #667eea;
+            border-left: 5px solid #2563eb;
             margin: 40px 0;
             font-size: 18px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-radius: 5px;
         }
         
         .pillars {
@@ -121,31 +170,45 @@
         
         .pillar {
             background: white;
-            padding: 30px;
+            padding: 40px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .pillar:hover {
+            transform: translateY(-5px);
         }
         
         .pillar-icon {
             font-size: 48px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            color: #2563eb;
         }
         
         .pillar h3 {
-            color: #667eea;
+            color: #2563eb;
             margin-bottom: 15px;
+            font-size: 24px;
         }
         
         .goals {
-            background: #f8f9fa;
+            background: white;
             padding: 40px;
             border-radius: 10px;
             margin: 40px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
         
         .goals h3 {
-            color: #667eea;
-            margin-bottom: 15px;
+            color: #2563eb;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        
+        .goals p {
+            margin: 12px 0;
+            font-size: 17px;
         }
         
         .events {
@@ -158,20 +221,38 @@
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            border-left: 5px solid #667eea;
+            border-left: 5px solid #2563eb;
+            transition: transform 0.3s;
+        }
+        
+        .event-card:hover {
+            transform: translateX(5px);
         }
         
         .event-date {
-            color: #667eea;
+            color: #2563eb;
             font-weight: bold;
-            font-size: 18px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        
+        .event-card h3 {
+            color: #1e40af;
+            margin: 10px 0;
         }
         
         footer {
-            background: #2d3748;
+            background: #1f2937;
             color: white;
             padding: 40px 20px;
             text-align: center;
+        }
+        
+        footer img {
+            height: 30px;
+            margin: 10px;
+            opacity: 0.8;
+            filter: brightness(0) invert(1);
         }
         
         @media (max-width: 768px) {
@@ -182,13 +263,24 @@
             .hero h1 {
                 font-size: 32px;
             }
+            
+            .hero-logos {
+                flex-direction: column;
+            }
+            
+            .logo-container img {
+                height: 30px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <nav class="container">
-            <div class="logo">📊 Copenhagen Quant Lab</div>
+            <div class="logo-container">
+                <img src="Screenshot 2025-10-29 at 13.24.00.png" alt="Copenhagen Quant Lab">
+                <span class="logo-text">Copenhagen Quant Lab</span>
+            </div>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
@@ -202,6 +294,11 @@
 
     <section class="hero">
         <div class="container">
+            <div class="hero-logos">
+                <img src="Screenshot 2025-10-29 at 13.24.00.png" alt="Copenhagen Quant Lab" class="hero-logo">
+                <img src="DTU_Logo_Sekundaer_Logo_Blue.jpg" alt="DTU" class="hero-logo">
+            </div>
+            <span class="dtu-badge">Technical University of Denmark</span>
             <h1>Copenhagen Quant Lab</h1>
             <p>DTU's quantitative trading society preparing dedicated members for careers at elite trading firms</p>
             <a href="join.html" class="cta-button">Join Us</a>
@@ -219,7 +316,7 @@
             <h2>What We Offer</h2>
             <div class="pillars">
                 <div class="pillar">
-                    <div class="pillar-icon">🧮</div>
+                    <div class="pillar-icon">📊</div>
                     <h3>Technical Excellence</h3>
                     <p>Master probability, statistics, programming, and derivatives pricing through structured curriculum. Weekly problem sets progress from foundational concepts to interview-level complexity, covering expected value, options pricing, market making, and algorithmic trading.</p>
                 </div>
@@ -231,7 +328,7 @@
                 </div>
                 
                 <div class="pillar">
-                    <div class="pillar-icon">🎲</div>
+                    <div class="pillar-icon">🎯</div>
                     <h3>Community & Strategy</h3>
                     <p>Poker nights applying game theory and probability. Chess tournaments developing strategic thinking. Peer problem-solving sessions where you learn faster together. We build the supportive community essential for breaking into competitive finance.</p>
                 </div>
@@ -248,21 +345,21 @@
             <h2>Upcoming Events</h2>
             <div class="events">
                 <div class="event-card">
-                    <div class="event-date">📅 Every Wednesday, 18:00-20:00</div>
+                    <div class="event-date">Every Wednesday, 18:00-20:00</div>
                     <h3>Weekly Meetups</h3>
                     <p><strong>Location:</strong> DTU Building 101, Room 3C</p>
                     <p>Structured sessions combining lectures, problem-solving, and discussion. Topics rotate: Probability Fundamentals, Options Pricing, Market Making, Algorithmic Trading, Interview Practice. Problem sets distributed each week.</p>
                 </div>
                 
                 <div class="event-card">
-                    <div class="event-date">📅 Every Friday, 19:00-22:00</div>
+                    <div class="event-date">Every Friday, 19:00-22:00</div>
                     <h3>Poker Night</h3>
                     <p><strong>Location:</strong> TBA</p>
                     <p>Limit hold'em poker applying probabilistic thinking, pot odds, and risk management. Not just social—deliberate training for decision-making under uncertainty that directly transfers to trading.</p>
                 </div>
                 
                 <div class="event-card">
-                    <div class="event-date">📅 Monthly</div>
+                    <div class="event-date">Monthly</div>
                     <h3>Mock Interviews</h3>
                     <p>One-on-one 30-minute sessions simulating real quantitative interviews. Probability puzzles, mental math, trade scenarios, behavioral questions. Written feedback within 48 hours.</p>
                 </div>
@@ -272,11 +369,11 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Copenhagen Quant Lab | DTU's Quantitative Trading Society</p>
-            <p>📧 contact@copenhagenquantlab.com</p>
+            <img src="Screenshot 2025-10-29 at 13.24.00.png" alt="Copenhagen Quant Lab">
+            <img src="DTU_Logo_Sekundaer_Logo_Blue.jpg" alt="DTU">
+            <p style="margin-top: 20px;">&copy; 2025 Copenhagen Quant Lab | DTU's Quantitative Trading Society</p>
+            <p>contact@copenhagenquantlab.com</p>
         </div>
     </footer>
 </body>
 </html>
-```
-
