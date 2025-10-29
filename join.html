@@ -8,29 +8,37 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; line-height: 1.6; color: #333; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px 0; }
+        header { background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%); color: white; padding: 20px 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         nav { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 24px; font-weight: bold; }
+        .logo-container { display: flex; align-items: center; gap: 15px; }
+        .logo-container img { height: 40px; width: auto; filter: brightness(0) invert(1); }
+        .logo-text { font-size: 22px; font-weight: 600; letter-spacing: -0.5px; }
         nav ul { display: flex; list-style: none; gap: 30px; }
-        nav a { color: white; text-decoration: none; font-weight: 500; }
-        section { padding: 60px 20px; }
-        h1 { font-size: 42px; margin-bottom: 20px; color: #667eea; }
-        h2 { font-size: 32px; margin: 40px 0 20px; color: #667eea; }
+        nav a { color: white; text-decoration: none; font-weight: 500; transition: opacity 0.3s; }
+        nav a:hover { opacity: 0.8; }
+        section { padding: 80px 20px; }
+        h1 { font-size: 42px; margin-bottom: 20px; color: #1e40af; font-weight: 700; }
+        h2 { font-size: 32px; margin: 40px 0 20px; color: #1e40af; font-weight: 700; }
         .info-box { background: white; padding: 40px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin: 30px 0; }
-        .highlight-box { background: #f0f4ff; padding: 30px; border-radius: 10px; border-left: 5px solid #667eea; margin: 30px 0; }
-        .cta-button { background: #667eea; color: white; padding: 15px 40px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; margin: 20px 0; transition: background 0.3s; }
-        .cta-button:hover { background: #5568d3; }
-        .process-step { background: #f8f9fa; padding: 20px; margin: 15px 0; border-radius: 8px; border-left: 4px solid #667eea; }
-        .process-step strong { color: #667eea; }
+        .highlight-box { background: #e0f2fe; padding: 30px; border-radius: 10px; border-left: 5px solid #2563eb; margin: 30px 0; }
+        .cta-button { background: #dc2626; color: white; padding: 15px 40px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; margin: 20px 0; transition: transform 0.3s, background 0.3s; }
+        .cta-button:hover { transform: translateY(-2px); background: #b91c1c; }
+        .process-step { background: #f8f9fa; padding: 20px; margin: 15px 0; border-radius: 8px; border-left: 4px solid #2563eb; }
+        .process-step strong { color: #2563eb; }
         ul { margin-left: 30px; margin-top: 10px; }
         li { margin: 10px 0; }
-        footer { background: #2d3748; color: white; padding: 40px 20px; text-align: center; }
+        footer { background: #1f2937; color: white; padding: 40px 20px; text-align: center; }
+        footer img { height: 30px; margin: 10px; opacity: 0.8; filter: brightness(0) invert(1); }
+        @media (max-width: 768px) { nav ul { display: none; } .logo-container img { height: 30px; } }
     </style>
 </head>
 <body>
     <header>
         <nav class="container">
-            <div class="logo">📊 Copenhagen Quant Lab</div>
+            <div class="logo-container">
+                <img src="Screenshot 2025-10-29 at 13.24.00.png" alt="Copenhagen Quant Lab">
+                <span class="logo-text">Copenhagen Quant Lab</span>
+            </div>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
@@ -48,28 +56,27 @@
             <p style="font-size: 18px; margin-bottom: 40px;">Ready to prepare for a career in quantitative trading? Here's everything you need to know about joining.</p>
 
             <div class="highlight-box">
-                <h2 style="margin-top: 0;">🎯 Who We're Looking For</h2>
+                <h2 style="margin-top: 0;">Who We're Looking For</h2>
                 <p style="margin-bottom: 20px;">Copenhagen Quant Lab welcomes all DTU students with strong quantitative skills and serious interest in quantitative finance. <strong>No prior finance knowledge required</strong>—we teach everything from foundations.</p>
                 
-                <h3 style="color: #667eea; margin-top: 20px;">What Matters:</h3>
+                <h3 style="color: #1e40af; margin-top: 20px; font-size: 20px;">What Matters:</h3>
                 <ul>
-                    <li><strong>Solid probability and statistics understanding</strong> (or willingness to learn rapidly)</li>
-                    <li><strong>Programming ability in Python</strong> (or commitment to develop quickly)</li>
-                    <li><strong>Genuine intellectual curiosity</strong> about markets and trading</li>
-                    <li><strong>Ability to collaborate</strong> in team problem-solving</li>
-                    <li><strong>Consistent effort</strong> (4-6 hours weekly)</li>
-                    <li><strong>Long-term commitment</strong> to the career path</li>
+                    <li>Solid probability and statistics understanding (or willingness to learn rapidly)</li>
+                    <li>Programming ability in Python (or commitment to develop quickly)</li>
+                    <li>Genuine intellectual curiosity about markets and trading</li>
+                    <li>Ability to collaborate in team problem-solving</li>
+                    <li>Consistent effort (4-6 hours weekly)</li>
+                    <li>Long-term commitment to the career path</li>
                 </ul>
 
-                <h3 style="color: #667eea; margin-top: 20px;">Backgrounds We Welcome:</h3>
+                <h3 style="color: #1e40af; margin-top: 20px; font-size: 20px;">Backgrounds We Welcome:</h3>
                 <p>Mathematics, Physics, Computer Science, Engineering disciplines, Statistics, Economics (if quantitatively strong)</p>
-                <p style="margin-top: 10px;"><strong>We're optimizing for:</strong> Talented, dedicated individuals who will benefit from structured training and supportive community.</p>
             </div>
 
             <div class="info-box">
-                <h2>📋 Joining Process</h2>
+                <h2>Joining Process</h2>
                 
-                <h3 style="color: #667eea; margin-top: 30px;">Fall 2025 (Founding Cohort)</h3>
+                <h3 style="color: #1e40af; margin-top: 30px; font-size: 22px;">Fall 2025 (Founding Cohort)</h3>
                 <p>We're currently building our founding team! Initial members join through:</p>
                 
                 <div class="process-step">
@@ -87,32 +94,30 @@
 
                 <a href="contact.html" class="cta-button">Express Interest for Founding Cohort</a>
 
-                <h3 style="color: #667eea; margin-top: 40px;">Spring 2026+ (Regular Admission)</h3>
+                <h3 style="color: #1e40af; margin-top: 40px; font-size: 22px;">Spring 2026+ (Regular Admission)</h3>
                 <p>Starting Spring 2026, we'll have a structured application process:</p>
                 
                 <div class="process-step">
-                    <strong>1. Application:</strong> Submit brief form covering your background, interest in quant finance, and goals (opens [week] each semester)
+                    <strong>1. Application:</strong> Submit brief form covering your background, interest, and goals
                 </div>
                 <div class="process-step">
-                    <strong>2. Intro Session:</strong> Attend introduction covering probability fundamentals and club overview
+                    <strong>2. Intro Session:</strong> Attend introduction covering probability fundamentals
                 </div>
                 <div class="process-step">
-                    <strong>3. Problem Set:</strong> Complete take-home assessment covering probability, mental math, and logical reasoning
+                    <strong>3. Problem Set:</strong> Complete take-home assessment
                 </div>
                 <div class="process-step">
-                    <strong>4. Interview:</strong> Short 30-minute discussion (behavioral + technical questions)
+                    <strong>4. Interview:</strong> Short 30-minute discussion
                 </div>
                 <div class="process-step">
-                    <strong>5. Decision:</strong> Receive decision within one week, join immediately if accepted
+                    <strong>5. Decision:</strong> Receive decision within one week
                 </div>
-
-                <p style="margin-top: 20px;"><strong>Target:</strong> We aim to accept [number] new members per semester to maintain community quality while growing sustainably.</p>
             </div>
 
             <div class="info-box">
-                <h2>📚 What to Expect</h2>
+                <h2>What to Expect</h2>
                 
-                <h3 style="color: #667eea; margin-top: 20px;">First Month: Foundations Bootcamp</h3>
+                <h3 style="color: #1e40af; margin-top: 20px; font-size: 20px;">First Month: Foundations Bootcamp</h3>
                 <ul>
                     <li>Introduction to quantitative finance overview</li>
                     <li>Probability fundamentals review</li>
@@ -121,7 +126,7 @@
                     <li>Alumni panels and career path discussions</li>
                 </ul>
 
-                <h3 style="color: #667eea; margin-top: 30px;">Ongoing Throughout Semester:</h3>
+                <h3 style="color: #1e40af; margin-top: 30px; font-size: 20px;">Ongoing Throughout Semester:</h3>
                 <ul>
                     <li><strong>Weekly meetups</strong> with lectures and problem-solving (attendance expected)</li>
                     <li><strong>Weekly problem sets</strong> (completion required)</li>
@@ -130,76 +135,37 @@
                     <li><strong>Trading competitions</strong> (team-based projects)</li>
                 </ul>
 
-                <h3 style="color: #667eea; margin-top: 30px;">Time Commitment:</h3>
-                <p><strong>4-6 hours weekly:</strong></p>
-                <ul>
-                    <li>2 hours: Weekly meetup</li>
-                    <li>2-3 hours: Problem sets and preparation</li>
-                    <li>1 hour: Review, reading, and community engagement</li>
-                    <li>Optional: Poker/chess events (additional 2-3 hours)</li>
-                </ul>
-                <p style="margin-top: 15px;"><em>Comparable to a challenging elective course—significant but manageable alongside your degree program.</em></p>
-
-                <h3 style="color: #667eea; margin-top: 30px;">Commitment:</h3>
-                <p>Stay active through the semester once joining. We're building a serious community—consistent participation matters more than intensity sprints.</p>
+                <h3 style="color: #1e40af; margin-top: 30px; font-size: 20px;">Time Commitment:</h3>
+                <p><strong>4-6 hours weekly:</strong> 2 hours meetup + 2-3 hours problem sets + 1 hour review</p>
             </div>
 
             <div class="info-box">
-                <h2>🎁 Benefits of Membership</h2>
-                <p style="margin-bottom: 15px;">Joining Copenhagen Quant Lab provides:</p>
+                <h2>Benefits of Membership</h2>
                 
                 <ul>
-                    <li><strong>Structured curriculum</strong> covering probability through derivatives pricing to algorithmic trading</li>
-                    <li><strong>Consistent practice</strong> with interview-style problems preparing for Jane Street, IMC, Optiver, etc.</li>
-                    <li><strong>Peer community</strong> of equally motivated students for collaboration and accountability</li>
-                    <li><strong>Alumni network</strong> and industry contacts as we grow</li>
-                    <li><strong>Mock interview practice</strong> with detailed feedback</li>
-                    <li><strong>Real project experience</strong> through competition organization and research initiatives</li>
-                    <li><strong>Poker and chess training</strong> for probabilistic and strategic thinking</li>
-                    <li><strong>Priority access</strong> to industry events, info sessions, and recruiting opportunities as we establish partnerships</li>
+                    <li>Structured curriculum covering probability through algorithmic trading</li>
+                    <li>Consistent practice with interview-style problems</li>
+                    <li>Peer community of equally motivated students</li>
+                    <li>Alumni network and industry contacts</li>
+                    <li>Mock interview practice with detailed feedback</li>
+                    <li>Real project experience through competitions</li>
+                    <li>Priority access to industry events and recruiting</li>
                 </ul>
             </div>
 
             <div class="highlight-box">
-                <h2 style="margin-top: 0;">📞 Ready to Join?</h2>
+                <h2 style="margin-top: 0;">Ready to Join?</h2>
                 <p>We're actively recruiting our founding cohort for Fall 2025!</p>
                 <a href="contact.html" class="cta-button">Contact Us to Learn More</a>
-                <p style="margin-top: 20px;">Questions? Email us at <a href="mailto:contact@copenhagenquantlab.com" style="color: #667eea; font-weight: bold;">contact@copenhagenquantlab.com</a></p>
-            </div>
-
-            <div class="info-box">
-                <h2>❓ Frequently Asked Questions</h2>
-                
-                <h3 style="color: #667eea; margin-top: 20px;">Do I need to know finance?</h3>
-                <p>No! We teach from fundamentals. Strong quantitative skills are what matter—we'll teach you the finance.</p>
-
-                <h3 style="color: #667eea; margin-top: 20px;">Do I need to code?</h3>
-                <p>Basic Python is helpful but you can learn along the way. We'll provide resources and support for developing programming skills.</p>
-
-                <h3 style="color: #667eea; margin-top: 20px;">What's the time commitment?</h3>
-                <p>4-6 hours weekly for most active members. This includes meetups, problem sets, and review time. Comparable to a challenging course.</p>
-
-                <h3 style="color: #667eea; margin-top: 20px;">Is there a membership fee?</h3>
-                <p>Free membership! Club is funded through DTU student activities and will seek external sponsorship as we grow.</p>
-
-                <h3 style="color: #667eea; margin-top: 20px;">Can I join mid-semester?</h3>
-                <p>We prefer semester start for cohesive learning, but contact us—we may accommodate exceptional cases.</p>
-
-                <h3 style="color: #667eea; margin-top: 20px;">What if I'm not sure quant finance is for me?</h3>
-                <p>Attend our intro sessions to learn more before committing! We'll explain the career path, job types, and what to expect.</p>
-
-                <h3 style="color: #667eea; margin-top: 20px;">What year should I join?</h3>
-                <p>Any year works! First-years benefit from early start, but third-years and Master's students actively recruiting also join for intensive preparation.</p>
-
-                <h3 style="color: #667eea; margin-top: 20px;">Do you help with internships and full-time positions?</h3>
-                <p>Yes! Mock interviews, resume reviews, firm introductions, and recruiting strategy guidance. As our network grows, we'll provide direct connections to trading firms.</p>
             </div>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Copenhagen Quant Lab | DTU's Quantitative Trading Society</p>
+            <img src="Screenshot 2025-10-29 at 13.24.00.png" alt="Copenhagen Quant Lab">
+            <img src="DTU_Logo_Sekundaer_Logo_Blue.jpg" alt="DTU">
+            <p style="margin-top: 20px;">&copy; 2025 Copenhagen Quant Lab | DTU's Quantitative Trading Society</p>
         </div>
     </footer>
 </body>
